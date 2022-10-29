@@ -26,8 +26,8 @@ public class OrderService {
             return orderExecutor.saveOrder(order);
         } else {
             Response response = new Response();
-            response.setMessage("userName not found " + userName);
-            response.setStatusCode(400);
+            //response.setMessage("userName not found " + userName);
+            response.setStatus(400);
             return ResponseEntity.badRequest().body(response);
         }
     }
@@ -37,12 +37,12 @@ public class OrderService {
         Optional<User> users = userRepository.findByUserName(userName);
         if (users.isPresent()) {
             orderExecutor.deleteOrderById(orderId);
-            response.setStatusCode(200);
-            response.setMessage("order deleted successfully");
+            response.setStatus(200);
+            //response.setMessage("order deleted successfully");
             return ResponseEntity.ok(response);
         } else {
-            response.setMessage("userName not found " + userName);
-            response.setStatusCode(400);
+            //response.setMessage("userName not found " + userName);
+            response.setStatus(400);
             return ResponseEntity.badRequest().body(response);
         }
     }
@@ -56,8 +56,8 @@ public class OrderService {
 //            response.setResponseBody(getResponse.getBody().getResponseBody());
             return getResponse;
         } else {
-            response.setMessage("userName not found " + userName);
-            response.setStatusCode(400);
+            //response.setMessage("userName not found " + userName);
+            response.setStatus(400);
             return ResponseEntity.badRequest().body(response);
         }
     }

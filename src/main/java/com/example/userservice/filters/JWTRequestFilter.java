@@ -18,10 +18,8 @@ import java.io.IOException;
 
 @Component
 public class JWTRequestFilter extends OncePerRequestFilter {
-
     @Autowired
     private JWTUtil jwtUtil;
-
     @Autowired
     private MyUserDetailsService myUserDetailsService;
 
@@ -30,8 +28,8 @@ public class JWTRequestFilter extends OncePerRequestFilter {
         //get Header from request
         String token = request.getHeader("Authorization");
         //extract token part from header
-         String jwtToken = extractJWTToken(token);
-        if(jwtToken!=null){
+        String jwtToken = extractJWTToken(token);
+        if (jwtToken != null) {
             //extract userName from using JwtToken
             String userName = jwtUtil.extractUsername(jwtToken);
             //validate token by passing userDetails

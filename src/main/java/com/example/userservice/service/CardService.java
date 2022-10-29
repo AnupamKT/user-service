@@ -38,7 +38,7 @@ public class CardService {
             response = cardExecutor.deleteCard(cardNumber);
         }else{
            String msg="User not found "+userName;
-            response=Response.builder().message(msg).statusCode(404).build();
+            response=Response.builder().status(404).build();
         }
         return response;
     }

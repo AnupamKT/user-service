@@ -17,12 +17,12 @@ public class CardController {
     @PostMapping("/{userName}/card")
     public ResponseEntity<Response> addCard(@PathVariable String userName, @RequestBody Card card) {
         Response response = cardService.addCard(userName, card);
-        return ResponseEntity.status(response.getStatusCode()).body(response);
+        return ResponseEntity.status(response.getStatus()).body(response);
     }
 
     @DeleteMapping("/{userName}/card/{cardNumber}")
     public ResponseEntity<Response> deleteUserCard(@PathVariable String userName, @PathVariable String cardNumber) {
         Response response = cardService.deleteCard(userName, cardNumber);
-        return ResponseEntity.status(response.getStatusCode()).body(response);
+        return ResponseEntity.status(response.getStatus()).body(response);
     }
 }

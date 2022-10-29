@@ -34,7 +34,7 @@ public class CardExecutor {
         } catch (Exception e) {
             responseBody = e.getMessage();
         }
-        return Response.builder().statusCode(status).responseBody(responseBody).build();
+        return Response.builder().status(status).body(responseBody).build();
     }
 
     public Response deleteCard(String cardNumber) {
@@ -48,6 +48,6 @@ public class CardExecutor {
         } catch (Exception e) {
             responseMsg = "server error occurred while deleting card " + cardNumber;
         }
-        return Response.builder().statusCode(status).message(responseMsg).build();
+        return Response.builder().status(status).build();
     }
 }

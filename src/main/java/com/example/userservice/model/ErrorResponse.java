@@ -1,15 +1,13 @@
 package com.example.userservice.model;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-public class Response<T> {
-    private int status;
-    private T body;
+public class ErrorResponse {
+    private int statusCode;
+    private String message;
 }
